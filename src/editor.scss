@@ -1,0 +1,171 @@
+/**
+ * 编辑器样式
+ *
+ * @author dai-siki同学 < 851733175@qq.com >
+ */
+
+
+/*---------------------------------------------------------------
+ |                           全局配置                           |
+ ---------------------------------------------------------------*/
+
+//网站主色 primary color bgcolor
+$c1: #d31119; // 红  dd000f
+$c2: #005ea7; // 蓝 00a1d6
+$c3: #d0000e; // 深红 B1191A
+//灰度色 用于字体
+$fc1: #222;
+$fc2: #6a6a6a;
+$fc3: #9f9f9f;
+$fc4: #bbb;
+// 背景色
+$bgc1: rgba(0, 2, 5, 0.05);
+// 线框色
+$bdc1: rgba(0, 0, 0, 0.15);
+$bdc2: rgba(0, 0, 0, 0.1);
+// 动画时长
+$ad1: 0.13s;
+$ad2: 0.18s;
+// 菜单栏高度
+$menu_h: 36px;
+
+/*---------------------------------------------------------------
+ |                           公共函数                            |
+ ---------------------------------------------------------------*/
+
+// 字体大小
+@mixin ff1 {
+	font-family: tahoma, arial, \5b8b\4f53, sans-serif;
+}
+
+@mixin ff2 {
+	font-family: arial, 'Microsoft YaHei', 微软雅黑;
+}
+
+// 统一的圆角
+@mixin bdrs {
+	border-radius: 2px;
+}
+
+// 统一的阴影
+@mixin bs1 {
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+@mixin bs2 {
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+@mixin bs3 {
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+// 清除容器自身浮动
+@mixin cs {
+	&::after {
+		display: block;
+		visibility: hidden;
+		clear: both;
+		overflow: hidden;
+		height: 0;
+		content: '';
+	}
+}
+
+// 不换行显示省略号
+@mixin toe {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	word-wrap: normal;
+}
+
+//遮蔽盒子
+@mixin shield {
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+/*---------------------------------------------------------------
+ |                           正文开始                           |
+ ---------------------------------------------------------------*/
+
+.dai-editor {
+	box-size: border-box;
+	position: relative;
+	z-index: 9999;
+	display: block;
+	padding-top: $menu_h;
+	overflow: hidden;
+	border: 1px solid $bdc1;
+	&.z-on {
+		@include bs1;
+	}
+	.dai-editor-menu-list {
+		position: absolute;
+		box-size: border-box;
+		z-index: 10010;
+		top: 0;
+		width: 100%;
+		height: $menu_h;
+		border-bottom: 1px solid $bdc2;
+		background-color: #fff;
+		overflow: hidden;
+		&.z-on {
+			@include bs2;
+		}
+		.dai-editor-menu-group {
+			display: block;
+			float: left;
+			padding: 0 8px;
+			border-right: 1px solid $bdc2;
+			font-size: 14px;
+			overflow: hidden;
+			.dai-editor-menu-item {
+				position: relative;
+				display: block;
+				float: left;
+				.dai-editor-menu-item-btn {
+					display: block;
+					width: $menu_h;
+					line-height: $menu_h;
+					text-align: center;
+					cursor: pointer;
+					&:hover {
+						background-color: $bgc1;
+					}
+					&:active {
+						@include bs1;
+					}
+					&.z-on {
+						color: $c1;
+						@include bs1;
+					}
+				}
+			}
+		}
+	}
+	.dai-editor-cnt {
+		box-sizing: border-box;
+		display: block;
+		z-index: 10000;
+		padding: 16px;
+		width: 100%;
+		height: 100%;
+		outline: none;
+		background-color: rgba(255, 255, 255, 0.8);
+		overflow: auto;
+		b,
+		strong {
+			font-weight: bold;
+		}
+	}
+}

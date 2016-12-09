@@ -1,0 +1,79 @@
+@charset "UTF-8";
+/**
+ * 编辑器样式
+ *
+ * @author dai-siki同学 < 851733175@qq.com >
+ */
+/*---------------------------------------------------------------
+ |                           全局配置                           |
+ ---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+ |                           公共函数                            |
+ ---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+ |                           正文开始                           |
+ ---------------------------------------------------------------*/
+.dai-editor {
+  box-size: border-box;
+  position: relative;
+  z-index: 9999;
+  display: block;
+  padding-top: 36px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15); }
+  .dai-editor.z-on {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+  .dai-editor .dai-editor-menu-list {
+    position: absolute;
+    box-size: border-box;
+    z-index: 10010;
+    top: 0;
+    width: 100%;
+    height: 36px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow: hidden; }
+    .dai-editor .dai-editor-menu-list.z-on {
+      -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+              box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+    .dai-editor .dai-editor-menu-list .dai-editor-menu-group {
+      display: block;
+      float: left;
+      padding: 0 8px;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      overflow: hidden; }
+      .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item {
+        position: relative;
+        display: block;
+        float: left; }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn {
+          display: block;
+          width: 36px;
+          line-height: 36px;
+          text-align: center;
+          cursor: pointer; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:hover {
+            background-color: rgba(0, 2, 5, 0.05); }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:active {
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn.z-on {
+            color: #d31119;
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }
+  .dai-editor .dai-editor-cnt {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    z-index: 10000;
+    padding: 16px;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    overflow: auto; }
+    .dai-editor .dai-editor-cnt b,
+    .dai-editor .dai-editor-cnt strong {
+      font-weight: bold; }
