@@ -1,0 +1,408 @@
+@charset "UTF-8";
+/**
+ * 编辑器样式
+ *
+ * @author dai-siki同学 < 851733175@qq.com >
+ */
+/*---------------------------------------------------------------
+ |                           全局配置                           |
+ ---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+ |                           图标字体                           |
+ ---------------------------------------------------------------*/
+@font-face {
+  font-family: 'dai-editor-icon';
+  src: url("../fonts/dai-editor-icon.eot?-qdfu1s");
+  src: url("../fonts/dai-editor-icon.eot?#iefix-qdfu1s") format("embedded-opentype"), url("../fonts/dai-editor-icon.ttf?-qdfu1s") format("truetype"), url("../fonts/dai-editor-icon.woff?-qdfu1s") format("woff"), url("../fonts/dai-editor-icon.svg?-qdfu1s#dai-editor-icon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+.dai-editor-icon {
+  font-family: 'dai-editor-icon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.dai-editor-icon-link:before {
+  content: "\e800"; }
+
+.dai-editor-icon-unlink:before {
+  content: "\e801"; }
+
+.dai-editor-icon-code:before {
+  content: "\e802"; }
+
+.dai-editor-icon-cancel:before {
+  content: "\e803"; }
+
+.dai-editor-icon-terminal:before {
+  content: "\e804"; }
+
+.dai-editor-icon-angle-down:before {
+  content: "\e805"; }
+
+.dai-editor-icon-font:before {
+  content: "\e806"; }
+
+.dai-editor-icon-bold:before {
+  content: "\e807"; }
+
+.dai-editor-icon-italic:before {
+  content: "\e808"; }
+
+.dai-editor-icon-header:before {
+  content: "\e809"; }
+
+.dai-editor-icon-align-left:before {
+  content: "\e80a"; }
+
+.dai-editor-icon-align-center:before {
+  content: "\e80b"; }
+
+.dai-editor-icon-align-right:before {
+  content: "\e80c"; }
+
+.dai-editor-icon-list-bullet:before {
+  content: "\e80d"; }
+
+.dai-editor-icon-indent-left:before {
+  content: "\e80e"; }
+
+.dai-editor-icon-indent-right:before {
+  content: "\e80f"; }
+
+.dai-editor-icon-list-numbered:before {
+  content: "\e810"; }
+
+.dai-editor-icon-underline:before {
+  content: "\e811"; }
+
+.dai-editor-icon-table:before {
+  content: "\e812"; }
+
+.dai-editor-icon-eraser:before {
+  content: "\e813"; }
+
+.dai-editor-icon-text-height:before {
+  content: "\e814"; }
+
+.dai-editor-icon-brush:before {
+  content: "\e815"; }
+
+.dai-editor-icon-pencil:before {
+  content: "\e816"; }
+
+.dai-editor-icon-minus:before {
+  content: "\e817"; }
+
+.dai-editor-icon-picture:before {
+  content: "\e818"; }
+
+.dai-editor-icon-file-image:before {
+  content: "\e819"; }
+
+.dai-editor-icon-cw:before {
+  content: "\e81a"; }
+
+.dai-editor-icon-ccw:before {
+  content: "\e81b"; }
+
+.dai-editor-icon-music:before {
+  content: "\e911"; }
+
+.dai-editor-icon-play:before {
+  content: "\e912"; }
+
+.dai-editor-icon-location:before {
+  content: "\e947"; }
+
+.dai-editor-icon-happy:before {
+  content: "\e9df"; }
+
+.dai-editor-icon-sigma:before {
+  content: "\ea67"; }
+
+.dai-editor-icon-enlarge2:before {
+  content: "\e98b"; }
+
+.dai-editor-icon-shrink2:before {
+  content: "\e98c"; }
+
+.dai-editor-icon-newspaper:before {
+  content: "\e904"; }
+
+.dai-editor-icon-camera:before {
+  content: "\e90f"; }
+
+.dai-editor-icon-video-camera:before {
+  content: "\e914"; }
+
+.dai-editor-icon-file-zip:before {
+  content: "\e92b"; }
+
+.dai-editor-icon-stack:before {
+  content: "\e92e"; }
+
+.dai-editor-icon-credit-card:before {
+  content: "\e93f"; }
+
+.dai-editor-icon-address-book:before {
+  content: "\e944"; }
+
+.dai-editor-icon-envelop:before {
+  content: "\e945"; }
+
+.dai-editor-icon-drawer:before {
+  content: "\e95c"; }
+
+.dai-editor-icon-download:before {
+  content: "\e960"; }
+
+.dai-editor-icon-upload:before {
+  content: "\e961"; }
+
+.dai-editor-icon-lock:before {
+  content: "\e98f"; }
+
+.dai-editor-icon-unlocked:before {
+  content: "\e990"; }
+
+.dai-editor-icon-wrench:before {
+  content: "\e991"; }
+
+.dai-editor-icon-eye:before {
+  content: "\e9ce"; }
+
+.dai-editor-icon-eye-blocked:before {
+  content: "\e9d1"; }
+
+.dai-editor-icon-command:before {
+  content: "\ea4e"; }
+
+.dai-editor-icon-font2:before {
+  content: "\ea5c"; }
+
+.dai-editor-icon-libreoffice:before {
+  content: "\eade"; }
+
+.dai-editor-icon-quotes-left:before {
+  content: "\e977"; }
+
+.dai-editor-icon-strikethrough:before {
+  content: "\ea65"; }
+
+.dai-editor-icon-desktop:before {
+  content: "\f108"; }
+
+.dai-editor-icon-tablet:before {
+  content: "\f10a"; }
+
+.dai-editor-icon-search-plus:before {
+  content: "\f00e"; }
+
+.dai-editor-icon-search-minus:before {
+  content: "\f010"; }
+
+.dai-editor-icon-trash-o:before {
+  content: "\f014"; }
+
+.dai-editor-icon-align-justify:before {
+  content: "\f039"; }
+
+.dai-editor-icon-arrows-v:before {
+  content: "\f07d"; }
+
+.dai-editor-icon-sigma2:before {
+  content: "\ea68"; }
+
+.dai-editor-icon-omega:before {
+  content: "\e900"; }
+
+.dai-editor-icon-cancel-circle:before {
+  content: "\e901"; }
+
+/*---------------------------------------------------------------
+ |                           公共函数                            |
+ ---------------------------------------------------------------*/
+/*---------------------------------------------------------------
+ |                           正文开始                           |
+ ---------------------------------------------------------------*/
+.dai-editor {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  display: block;
+  z-index: 99;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 14px; }
+  .dai-editor * {
+    margin: 0;
+    padding: 0; }
+  .dai-editor.z-on {
+    -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); }
+  .dai-editor .dai-editor-menu-list {
+    position: relative;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    z-index: 1000;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff; }
+    .dai-editor .dai-editor-menu-list::after {
+      display: block;
+      visibility: hidden;
+      clear: both;
+      overflow: hidden;
+      height: 0;
+      content: ''; }
+    .dai-editor .dai-editor-menu-list.z-on {
+      -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+              box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15); }
+    .dai-editor .dai-editor-menu-list img {
+      display: block; }
+    .dai-editor .dai-editor-menu-list li {
+      list-style-type: none; }
+    .dai-editor .dai-editor-menu-list .dai-editor-menu-group {
+      display: block;
+      float: left;
+      padding: 0 8px;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      font-size: 14px; }
+      .dai-editor .dai-editor-menu-list .dai-editor-menu-group::after {
+        display: block;
+        visibility: hidden;
+        clear: both;
+        overflow: hidden;
+        height: 0;
+        content: ''; }
+      .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item {
+        position: relative;
+        display: block;
+        float: left; }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn {
+          display: block;
+          z-index: 102;
+          width: 37px;
+          height: 37px;
+          line-height: 37px;
+          text-align: center;
+          cursor: pointer;
+          overflow: hidden;
+          color: #6a6a6a; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:hover {
+            color: #222;
+            background-color: rgba(0, 2, 5, 0.04); }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:active {
+            -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+                    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12); }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu {
+          -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
+                  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
+          position: absolute;
+          z-index: 110;
+          left: 0;
+          display: block;
+          background-color: #fff;
+          visibility: hidden; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu::after {
+            display: block;
+            visibility: hidden;
+            clear: both;
+            overflow: hidden;
+            height: 0;
+            content: ''; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu li {
+            display: block;
+            float: left;
+            cursor: pointer; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu.dai-editor-dropmenu-color {
+            display: block;
+            width: 120px;
+            padding: 8px;
+            background-color: #fff; }
+            .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu.dai-editor-dropmenu-color li {
+              border-radius: 2px;
+              margin: 5px;
+              width: 20px;
+              height: 20px; }
+              .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu.dai-editor-dropmenu-color li:hover {
+                -webkit-box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
+                        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15); }
+              .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-dropmenu.dai-editor-dropmenu-color li:active {
+                -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
+                        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23); }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item.z-on .dai-editor-menu-item-btn {
+          color: #d31119;
+          background-color: rgba(0, 2, 5, 0.04); }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item.z-on2 .dai-editor-dropmenu {
+          visibility: visible; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item.z-on2 .dai-editor-dropmenu::before {
+            content: '';
+            position: absolute;
+            display: block;
+            z-index: 120;
+            top: -3px;
+            width: 37px;
+            height: 4px;
+            background-color: #fff;
+            left: 0; }
+        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item.z-on2 .dai-editor-menu-item-btn {
+          -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
+                  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
+          background-color: #fff;
+          color: #222; }
+          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item.z-on2 .dai-editor-menu-item-btn:hover {
+            background-color: #fff; }
+  .dai-editor .dai-editor-cnt {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    display: block;
+    z-index: 10000;
+    padding: 16px;
+    width: 100%;
+    min-height: 200px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    line-height: 1.8;
+    color: #222; }
+    .dai-editor .dai-editor-cnt b,
+    .dai-editor .dai-editor-cnt strong {
+      font-weight: bold; }
+    .dai-editor .dai-editor-cnt p, .dai-editor .dai-editor-cnt div {
+      margin: 16px 0; }
+    .dai-editor .dai-editor-cnt br {
+      height: 0; }
+    .dai-editor .dai-editor-cnt blockquote {
+      margin: 10px;
+      padding: 10px 15px;
+      border-left: 5px solid #8ecdff;
+      background-color: rgba(0, 2, 5, 0.04); }
+    .dai-editor .dai-editor-cnt table {
+      width: 100%;
+      border-collapse: collapse;
+      line-height: 1.8; }
+      .dai-editor .dai-editor-cnt table thead tr {
+        background-color: rgba(0, 2, 5, 0.04); }
+        .dai-editor .dai-editor-cnt table thead tr th {
+          text-align: left;
+          height: 20px;
+          border: 1px solid rgba(0, 0, 0, 0.1);
+          padding: 4px;
+          vertical-align: middle; }
+      .dai-editor .dai-editor-cnt table tbody tr td {
+        text-align: left;
+        height: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 4px;
+        vertical-align: middle; }

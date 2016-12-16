@@ -19,15 +19,22 @@ $fc2: #6a6a6a;
 $fc3: #9f9f9f;
 $fc4: #bbb;
 // 背景色
-$bgc1: rgba(0, 2, 5, 0.05);
+$bgc1: rgba(0, 2, 5, 0.04);
 // 线框色
 $bdc1: rgba(0, 0, 0, 0.15);
 $bdc2: rgba(0, 0, 0, 0.1);
+$bdc3: rgba(0, 0, 0, 0.6);
 // 动画时长
 $ad1: 0.13s;
 $ad2: 0.18s;
 // 菜单栏高度
-$menu_h: 36px;
+$menu_h: 37px;
+
+/*---------------------------------------------------------------
+ |                           图标字体                           |
+ ---------------------------------------------------------------*/
+
+@import "icon";
 
 /*---------------------------------------------------------------
  |                           公共函数                            |
@@ -49,15 +56,15 @@ $menu_h: 36px;
 
 // 统一的阴影
 @mixin bs1 {
-	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
 
 @mixin bs2 {
-	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.15);
 }
 
 @mixin bs3 {
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.23);
 }
 
 // 清除容器自身浮动
@@ -99,55 +106,130 @@ $menu_h: 36px;
  ---------------------------------------------------------------*/
 
 .dai-editor {
-	box-size: border-box;
+	box-sizing: border-box;
 	position: relative;
-	z-index: 9999;
 	display: block;
-	padding-top: $menu_h;
+	z-index: 99;
+	margin: 0;
+	padding: 0;
 	overflow: hidden;
 	border: 1px solid $bdc1;
+	font-size: 14px;
+	* {
+		margin: 0;
+		padding: 0;
+	}
 	&.z-on {
 		@include bs1;
 	}
 	.dai-editor-menu-list {
-		position: absolute;
-		box-size: border-box;
-		z-index: 10010;
-		top: 0;
+		@include cs;
+		position: relative;
+		box-sizing: border-box;
+		z-index: 1000;
 		width: 100%;
-		height: $menu_h;
 		border-bottom: 1px solid $bdc2;
 		background-color: #fff;
-		overflow: hidden;
 		&.z-on {
 			@include bs2;
 		}
+		img {
+			display: block;
+		}
+		li {
+			list-style-type: none;
+		}
 		.dai-editor-menu-group {
+			@include cs;
 			display: block;
 			float: left;
 			padding: 0 8px;
 			border-right: 1px solid $bdc2;
 			font-size: 14px;
-			overflow: hidden;
 			.dai-editor-menu-item {
 				position: relative;
 				display: block;
 				float: left;
 				.dai-editor-menu-item-btn {
 					display: block;
+					z-index: 102;
 					width: $menu_h;
+					height: $menu_h;
 					line-height: $menu_h;
 					text-align: center;
 					cursor: pointer;
+					overflow: hidden;
+					color: $fc2;
 					&:hover {
+						color: $fc1;
 						background-color: $bgc1;
 					}
 					&:active {
 						@include bs1;
 					}
-					&.z-on {
+				}
+				.dai-editor-dropmenu {
+					@include bs3;
+					@include cs;
+					position: absolute;
+					z-index: 110;
+					left: 0;
+					display: block;
+					background-color: #fff;
+					visibility: hidden;
+					li {
+						display: block;
+						float: left;
+						cursor: pointer;
+					}
+					&.dai-editor-dropmenu-color {
+						display: block;
+						width: 120px;
+						padding: 8px;
+						background-color: #fff;
+						li {
+							@include bdrs;
+							margin: 5px;
+							width: 20px;
+							height: 20px;
+							&:hover {
+								@include bs2;
+							}
+							&:active {
+								@include bs3;
+							}
+						}
+					}
+				}
+				&.z-on {
+					.dai-editor-menu-item-btn {
 						color: $c1;
-						@include bs1;
+						background-color: $bgc1;
+					}
+				}
+				// 带有下拉菜单的激活状态
+				&.z-on2 {
+					.dai-editor-dropmenu {
+						visibility: visible;
+						&::before {
+							content: '';
+							position: absolute;
+							display: block;
+							z-index: 120;
+							top: -3px;
+							width: $menu_h;
+							height: 4px;
+							background-color: #fff;
+							left: 0;
+						}
+					}
+					.dai-editor-menu-item-btn {
+						@include bs3;
+						background-color: #fff;
+						color: $fc1;
+						&:hover {
+							background-color: #fff;
+						}
 					}
 				}
 			}
@@ -159,13 +241,55 @@ $menu_h: 36px;
 		z-index: 10000;
 		padding: 16px;
 		width: 100%;
-		height: 100%;
+		min-height: 200px;
 		outline: none;
 		background-color: rgba(255, 255, 255, 0.8);
-		overflow: auto;
+		font-size: 14px;
+		line-height: 1.8;
+		color: $fc1;
 		b,
 		strong {
 			font-weight: bold;
+		}
+		p, div{
+			margin: 16px 0;
+		}
+		br {
+			height: 0;
+		}
+		blockquote {
+			margin: 10px;
+			padding: 10px 15px;
+			border-left: 5px solid lighten($c2, 45);
+			background-color: $bgc1;
+		}
+		table {
+			width: 100%;
+			border-collapse: collapse;
+			line-height: 1.8;
+			thead {
+				tr {
+					background-color: $bgc1;
+					th {
+						text-align: left;
+						height: 20px;
+						border: 1px solid $bdc2;
+						padding: 4px;
+						vertical-align: middle;
+					}
+				}
+			}
+			tbody {
+				tr {
+					td {
+						text-align: left;
+						height: 20px;
+						border: 1px solid $bdc2;
+						padding: 4px;
+						vertical-align: middle;
+					}
+				}
+			}
 		}
 	}
 }

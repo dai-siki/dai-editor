@@ -15,8 +15,12 @@ export default {
 	},
 	// 保存选区
 	save() {
-		let range = document.getSelection().getRangeAt(0);
-		this.setRange(range);
+		// 使用 try catch 来防止没有选区时的报错
+		try {
+			let range = document.getSelection().getRangeAt(0);
+			this.setRange(range);
+		} catch (ex) {
+		}
 	},
 	// 恢复选区
 	restore() {

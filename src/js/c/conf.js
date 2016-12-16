@@ -111,43 +111,69 @@ export default {
 		}
 	},
 
+	// 图标字体
+	menuIconSuffix: {
+		// 这个 default 不加引号，在 IE8 会报错
+		'default': 'command',
+		bold: 'bold',
+		underline: 'underline',
+		italic: 'italic',
+		forecolor: 'pencil',
+		bgcolor: 'brush',
+		strikethrough: 'strikethrough',
+		eraser: 'eraser',
+		quote: 'quotes-left',
+		source: 'code',
+		fontfamily: 'font2',
+		fontsize: 'text-height',
+		head: 'header',
+		orderlist: 'list-numbered',
+		unorderlist: 'list-bullet',
+		alignleft: 'align-left',
+		aligncenter: 'align-center',
+		alignright: 'align-right',
+		link: 'link',
+		unlink: 'unlink',
+		table: 'table',
+		emotion: 'happy',
+		img: 'picture',
+		video: 'play',
+		location: 'location',
+		insertcode: 'terminal',
+		undo: 'ccw',
+		redo: 'cw',
+		fullscreen: 'enlarge2'
+	},
+
 	// 菜单配置
-	menus: [
-		{
-			bold: '粗体',
-			underline: '下划线',
-			italic: '斜体',
-			forecolor: '文字颜色',
-			bgcolor: '背景色',
-			strikethrough: '删除线',
-			fontfamily: '字体',
-			fontsize: '字号',
-			head: '标题',
-			eraser: '清空格式'
-		},
-		{
-			quote: '引用',
-			orderlist: '有序列表',
-			unorderlist: '无序列表',
-			table: '表格'
-		},
-		{
-			alignleft: '左对齐',
-			aligncenter: '居中',
-			alignright: '右对齐'
-		},
-		{
-			link: '链接',
-			emotion: '表情',
-			img: '图片',
-			video: '视频'
-		},
-		{
-			undo: '撤销',
-			redo: '重复',
-			fullscreen: '全屏'
-		}
-	],
+	menus: [{
+		bold: '粗体',
+		underline: '下划线',
+		italic: '斜体',
+		strikethrough: '删除线',
+		forecolor: '文字颜色',
+		fontfamily: '字体',
+		fontsize: '字号',
+		head: '标题',
+		eraser: '清空格式'
+	}, {
+		orderlist: '有序列表',
+		unorderlist: '无序列表',
+		table: '表格',
+		quote: '引用'
+	}, {
+		alignleft: '左对齐',
+		aligncenter: '居中',
+		alignright: '右对齐'
+	}, {
+		link: '链接',
+		emotion: '表情',
+		img: '图片'
+	}, {
+		undo: '撤销',
+		redo: '重复',
+		fullscreen: '全屏'
+	}],
 
 	// 颜色配置
 	colors: {

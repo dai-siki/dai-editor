@@ -16,10 +16,10 @@ const $ = require('gulp-load-plugins')(),
  -------------------------------------------------------------*/
 
 gulp.task('css', function() {
-    gulp.src('./src/**/*.scss')
+    gulp.src('./src/scss/*.scss')
         .pipe($.sass())
         .pipe($.autoprefixer('last 10 version'))
-        .pipe(gulp.dest('./css'))
+        .pipe(gulp.dest('./dist/css'))
         .pipe(reload({
             stream: true
         }));
@@ -53,7 +53,7 @@ gulp.task('js', function() {
         }
     };
 
-    gulp.src('./src/index.js')
+    gulp.src('./src/js/index.js')
         .pipe($.plumber({
             errorHandler: _errrHandler
         }))
@@ -62,36 +62,7 @@ gulp.task('js', function() {
         }))
         .pipe(webpack(webpack_config))
         // .pipe($.uglify())
-        .pipe(gulp.dest('./dist'));
-});
-
-// jS task
-gulp.task('prod', function() {
-    var webpack_config = {
-        module: {
-            loaders: [{
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
-                loader: 'babel',
-                query: {
-                    presets: ['es2015', 'stage-3'],
-                    plugins: ['transform-runtime']
-                }
-            }, {
-                test: /\.css$/,
-                loaders: ['style', 'css']
-            }, {
-                test: /\.json$/,
-                loaders: ['json']
-            }, {
-                test: /\.(scss|sass)$/,
-                loaders: ['style', 'sass']
-            }, {
-                test: /\.(html|tpl)$/,
-                loaders: ['html']
-            }]
-        }
-    };
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('serve', function() {
@@ -101,8 +72,8 @@ gulp.task('serve', function() {
         }
     });
     gulp.watch(['./src/**/*.scss'], ['css']);
-    gulp.watch(['./src/**/*.js', './src/**/*.scss'], ['js']);
-    gulp.watch(['./example/**/*.html', './dist/**/*.js', ], function () {
+    gulp.watch(['./src/**/*.js'], ['js']);
+    gulp.watch(['./example/**/*.html', './dist/**/*.js'], function () {
         reload();
     });
 });

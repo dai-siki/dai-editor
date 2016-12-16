@@ -55,9 +55,7 @@
 
 	__webpack_require__(2);
 
-	__webpack_require__(299);
-
-	var _editor = __webpack_require__(303);
+	var _editor = __webpack_require__(299);
 
 	var _editor2 = _interopRequireDefault(_editor);
 
@@ -8195,381 +8193,37 @@
 /* 299 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(300);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(302)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./editor.scss", function() {
-				var newContent = require("!!./../node_modules/.npminstall/css-loader/0.23.1/css-loader/index.js!./../node_modules/.npminstall/sass-loader/4.0.2/sass-loader/index.js!./editor.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 300 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(301)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "@charset \"UTF-8\";\n/**\r\n * 编辑器样式\r\n *\r\n * @author dai-siki同学 < 851733175@qq.com >\r\n */\n/*---------------------------------------------------------------\r\n |                           全局配置                           |\r\n ---------------------------------------------------------------*/\n/*---------------------------------------------------------------\r\n |                           公共函数                            |\r\n ---------------------------------------------------------------*/\n/*---------------------------------------------------------------\r\n |                           正文开始                           |\r\n ---------------------------------------------------------------*/\n.dai-editor {\n  box-size: border-box;\n  position: relative;\n  z-index: 9999;\n  display: block;\n  padding-top: 36px;\n  overflow: hidden;\n  border: 1px solid rgba(0, 0, 0, 0.15); }\n  .dai-editor.z-on {\n    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }\n  .dai-editor .dai-editor-menu-list {\n    position: absolute;\n    box-size: border-box;\n    z-index: 10010;\n    top: 0;\n    width: 100%;\n    height: 36px;\n    border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n    background-color: #fff;\n    overflow: hidden; }\n    .dai-editor .dai-editor-menu-list.z-on {\n      box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.12); }\n    .dai-editor .dai-editor-menu-list .dai-editor-menu-group {\n      display: block;\n      float: left;\n      padding: 0 8px;\n      border-right: 1px solid rgba(0, 0, 0, 0.1);\n      font-size: 14px;\n      overflow: hidden; }\n      .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item {\n        position: relative;\n        display: block;\n        float: left; }\n        .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn {\n          display: block;\n          width: 36px;\n          line-height: 36px;\n          text-align: center;\n          cursor: pointer; }\n          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:hover {\n            background-color: rgba(0, 2, 5, 0.05); }\n          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn:active {\n            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }\n          .dai-editor .dai-editor-menu-list .dai-editor-menu-group .dai-editor-menu-item .dai-editor-menu-item-btn.z-on {\n            color: #d31119;\n            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); }\n  .dai-editor .dai-editor-cnt {\n    box-sizing: border-box;\n    display: block;\n    z-index: 10000;\n    padding: 16px;\n    width: 100%;\n    height: 100%;\n    outline: none;\n    background-color: rgba(255, 255, 255, 0.8);\n    overflow: auto; }\n    .dai-editor .dai-editor-cnt b,\n    .dai-editor .dai-editor-cnt strong {\n      font-weight: bold; }\n", ""]);
-
-	// exports
-
-
-/***/ },
-/* 301 */
-/***/ function(module, exports) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	// css base code, injected by the css-loader
-	module.exports = function() {
-		var list = [];
-
-		// return the list of modules as css string
-		list.toString = function toString() {
-			var result = [];
-			for(var i = 0; i < this.length; i++) {
-				var item = this[i];
-				if(item[2]) {
-					result.push("@media " + item[2] + "{" + item[1] + "}");
-				} else {
-					result.push(item[1]);
-				}
-			}
-			return result.join("");
-		};
-
-		// import a list of modules into the list
-		list.i = function(modules, mediaQuery) {
-			if(typeof modules === "string")
-				modules = [[null, modules, ""]];
-			var alreadyImportedModules = {};
-			for(var i = 0; i < this.length; i++) {
-				var id = this[i][0];
-				if(typeof id === "number")
-					alreadyImportedModules[id] = true;
-			}
-			for(i = 0; i < modules.length; i++) {
-				var item = modules[i];
-				// skip already imported module
-				// this implementation is not 100% perfect for weird media query combinations
-				//  when a module is imported multiple times with different media queries.
-				//  I hope this will never occur (Hey this way we have smaller bundles)
-				if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-					if(mediaQuery && !item[2]) {
-						item[2] = mediaQuery;
-					} else if(mediaQuery) {
-						item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-					}
-					list.push(item);
-				}
-			}
-		};
-		return list;
-	};
-
-
-/***/ },
-/* 302 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/*
-		MIT License http://www.opensource.org/licenses/mit-license.php
-		Author Tobias Koppers @sokra
-	*/
-	var stylesInDom = {},
-		memoize = function(fn) {
-			var memo;
-			return function () {
-				if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-				return memo;
-			};
-		},
-		isOldIE = memoize(function() {
-			return /msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase());
-		}),
-		getHeadElement = memoize(function () {
-			return document.head || document.getElementsByTagName("head")[0];
-		}),
-		singletonElement = null,
-		singletonCounter = 0,
-		styleElementsInsertedAtTop = [];
-
-	module.exports = function(list, options) {
-		if(false) {
-			if(typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-		}
-
-		options = options || {};
-		// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-		// tags it will allow on a page
-		if (typeof options.singleton === "undefined") options.singleton = isOldIE();
-
-		// By default, add <style> tags to the bottom of <head>.
-		if (typeof options.insertAt === "undefined") options.insertAt = "bottom";
-
-		var styles = listToStyles(list);
-		addStylesToDom(styles, options);
-
-		return function update(newList) {
-			var mayRemove = [];
-			for(var i = 0; i < styles.length; i++) {
-				var item = styles[i];
-				var domStyle = stylesInDom[item.id];
-				domStyle.refs--;
-				mayRemove.push(domStyle);
-			}
-			if(newList) {
-				var newStyles = listToStyles(newList);
-				addStylesToDom(newStyles, options);
-			}
-			for(var i = 0; i < mayRemove.length; i++) {
-				var domStyle = mayRemove[i];
-				if(domStyle.refs === 0) {
-					for(var j = 0; j < domStyle.parts.length; j++)
-						domStyle.parts[j]();
-					delete stylesInDom[domStyle.id];
-				}
-			}
-		};
-	}
-
-	function addStylesToDom(styles, options) {
-		for(var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-			if(domStyle) {
-				domStyle.refs++;
-				for(var j = 0; j < domStyle.parts.length; j++) {
-					domStyle.parts[j](item.parts[j]);
-				}
-				for(; j < item.parts.length; j++) {
-					domStyle.parts.push(addStyle(item.parts[j], options));
-				}
-			} else {
-				var parts = [];
-				for(var j = 0; j < item.parts.length; j++) {
-					parts.push(addStyle(item.parts[j], options));
-				}
-				stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-			}
-		}
-	}
-
-	function listToStyles(list) {
-		var styles = [];
-		var newStyles = {};
-		for(var i = 0; i < list.length; i++) {
-			var item = list[i];
-			var id = item[0];
-			var css = item[1];
-			var media = item[2];
-			var sourceMap = item[3];
-			var part = {css: css, media: media, sourceMap: sourceMap};
-			if(!newStyles[id])
-				styles.push(newStyles[id] = {id: id, parts: [part]});
-			else
-				newStyles[id].parts.push(part);
-		}
-		return styles;
-	}
-
-	function insertStyleElement(options, styleElement) {
-		var head = getHeadElement();
-		var lastStyleElementInsertedAtTop = styleElementsInsertedAtTop[styleElementsInsertedAtTop.length - 1];
-		if (options.insertAt === "top") {
-			if(!lastStyleElementInsertedAtTop) {
-				head.insertBefore(styleElement, head.firstChild);
-			} else if(lastStyleElementInsertedAtTop.nextSibling) {
-				head.insertBefore(styleElement, lastStyleElementInsertedAtTop.nextSibling);
-			} else {
-				head.appendChild(styleElement);
-			}
-			styleElementsInsertedAtTop.push(styleElement);
-		} else if (options.insertAt === "bottom") {
-			head.appendChild(styleElement);
-		} else {
-			throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-		}
-	}
-
-	function removeStyleElement(styleElement) {
-		styleElement.parentNode.removeChild(styleElement);
-		var idx = styleElementsInsertedAtTop.indexOf(styleElement);
-		if(idx >= 0) {
-			styleElementsInsertedAtTop.splice(idx, 1);
-		}
-	}
-
-	function createStyleElement(options) {
-		var styleElement = document.createElement("style");
-		styleElement.type = "text/css";
-		insertStyleElement(options, styleElement);
-		return styleElement;
-	}
-
-	function createLinkElement(options) {
-		var linkElement = document.createElement("link");
-		linkElement.rel = "stylesheet";
-		insertStyleElement(options, linkElement);
-		return linkElement;
-	}
-
-	function addStyle(obj, options) {
-		var styleElement, update, remove;
-
-		if (options.singleton) {
-			var styleIndex = singletonCounter++;
-			styleElement = singletonElement || (singletonElement = createStyleElement(options));
-			update = applyToSingletonTag.bind(null, styleElement, styleIndex, false);
-			remove = applyToSingletonTag.bind(null, styleElement, styleIndex, true);
-		} else if(obj.sourceMap &&
-			typeof URL === "function" &&
-			typeof URL.createObjectURL === "function" &&
-			typeof URL.revokeObjectURL === "function" &&
-			typeof Blob === "function" &&
-			typeof btoa === "function") {
-			styleElement = createLinkElement(options);
-			update = updateLink.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-				if(styleElement.href)
-					URL.revokeObjectURL(styleElement.href);
-			};
-		} else {
-			styleElement = createStyleElement(options);
-			update = applyToTag.bind(null, styleElement);
-			remove = function() {
-				removeStyleElement(styleElement);
-			};
-		}
-
-		update(obj);
-
-		return function updateStyle(newObj) {
-			if(newObj) {
-				if(newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap)
-					return;
-				update(obj = newObj);
-			} else {
-				remove();
-			}
-		};
-	}
-
-	var replaceText = (function () {
-		var textStore = [];
-
-		return function (index, replacement) {
-			textStore[index] = replacement;
-			return textStore.filter(Boolean).join('\n');
-		};
-	})();
-
-	function applyToSingletonTag(styleElement, index, remove, obj) {
-		var css = remove ? "" : obj.css;
-
-		if (styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = replaceText(index, css);
-		} else {
-			var cssNode = document.createTextNode(css);
-			var childNodes = styleElement.childNodes;
-			if (childNodes[index]) styleElement.removeChild(childNodes[index]);
-			if (childNodes.length) {
-				styleElement.insertBefore(cssNode, childNodes[index]);
-			} else {
-				styleElement.appendChild(cssNode);
-			}
-		}
-	}
-
-	function applyToTag(styleElement, obj) {
-		var css = obj.css;
-		var media = obj.media;
-
-		if(media) {
-			styleElement.setAttribute("media", media)
-		}
-
-		if(styleElement.styleSheet) {
-			styleElement.styleSheet.cssText = css;
-		} else {
-			while(styleElement.firstChild) {
-				styleElement.removeChild(styleElement.firstChild);
-			}
-			styleElement.appendChild(document.createTextNode(css));
-		}
-	}
-
-	function updateLink(linkElement, obj) {
-		var css = obj.css;
-		var sourceMap = obj.sourceMap;
-
-		if(sourceMap) {
-			// http://stackoverflow.com/a/26603875
-			css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-		}
-
-		var blob = new Blob([css], { type: "text/css" });
-
-		var oldSrc = linkElement.href;
-
-		linkElement.href = URL.createObjectURL(blob);
-
-		if(oldSrc)
-			URL.revokeObjectURL(oldSrc);
-	}
-
-
-/***/ },
-/* 303 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
 
-	var _keys = __webpack_require__(304);
+	var _keys = __webpack_require__(300);
 
 	var _keys2 = _interopRequireDefault(_keys);
 
-	var _assign = __webpack_require__(339);
+	var _assign = __webpack_require__(335);
 
 	var _assign2 = _interopRequireDefault(_assign);
 
-	var _csl = __webpack_require__(345);
+	var _csl = __webpack_require__(341);
 
 	var _csl2 = _interopRequireDefault(_csl);
 
-	var _dom = __webpack_require__(346);
+	var _dom = __webpack_require__(342);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
-	var _selection = __webpack_require__(347);
+	var _keyCode = __webpack_require__(343);
+
+	var _keyCode2 = _interopRequireDefault(_keyCode);
+
+	var _selection = __webpack_require__(344);
 
 	var _selection2 = _interopRequireDefault(_selection);
 
-	var _conf = __webpack_require__(348);
+	var _conf = __webpack_require__(345);
 
 	var _conf2 = _interopRequireDefault(_conf);
 
@@ -8579,7 +8233,9 @@
 
 
 	// 选区相关封装
-	// 控制台提示
+
+
+	// dom相关封装
 	var emptyFn = function emptyFn() {};
 
 	/**
@@ -8593,7 +8249,8 @@
 	// 全局配置
 
 
-	// dom相关封装
+	// 键盘code
+	// 控制台提示
 	var E = function E(id, argConf) {
 		var E = this;
 		// 根元素
@@ -8624,7 +8281,7 @@
 		    cntBaseEle = _dom2.default.create('div'),
 		    conf = that.conf,
 		    baseEle = that.baseEle,
-		    initCnt = baseEle.innerHTML;
+		    initCnt = baseEle.innerHTML ? baseEle.innerHTML : '<p><br></p>';
 
 		var lang = conf.lang[conf.langType]; //语言包
 		that.nextTimeRestoreSelection = false; // 下次失去焦点恢复选区
@@ -8633,8 +8290,7 @@
 
 		// --------------- 根元素设置样式、清空内容、添加类名 ------------------
 		_dom2.default.setStyle(baseEle, {
-			width: conf.width,
-			height: conf.height
+			width: conf.width
 		});
 		_dom2.default.content(baseEle, '');
 		_dom2.default.addClass(baseEle, 'dai-editor');
@@ -8645,18 +8301,30 @@
 		_dom2.default.editable(cntBaseEle);
 		_dom2.default.content(cntBaseEle, initCnt);
 		_dom2.default.pushChild(baseEle, [menuBaseEle, cntBaseEle]);
+		// 获得焦点时增加特效
 		cntBaseEle.addEventListener('focus', function () {
 			_dom2.default.addClass(baseEle, 'z-on');
 		});
+		// 失去焦点时恢复选区
 		cntBaseEle.addEventListener('blur', function () {
 			if (that.nextTimeRestoreSelection) {
-				// 失去焦点时恢复选区
 				_selection2.default.restore();
 				that.nextTimeRestoreSelection = false;
 			} else {
 				_dom2.default.removeClass(baseEle, 'z-on');
 			}
 		});
+		// 点击关闭菜单栏二级导航
+		document.body.addEventListener('click', function () {
+			var menuEleList = that.menuEleList;
+
+			(0, _keys2.default)(menuEleList).forEach(function (id) {
+				var ele = menuEleList[id].item;
+				_dom2.default.removeClass(ele, 'z-on2');
+			});
+			that.menuEleList.keys;
+		});
+		// 滚动菜单那里悬浮
 		cntBaseEle.addEventListener('scroll', function () {
 			if (this.scrollTop > 0) {
 				_dom2.default.addClass(menuBaseEle, 'z-on');
@@ -8664,22 +8332,36 @@
 				_dom2.default.removeClass(menuBaseEle, 'z-on');
 			}
 		});
+		// 使用p标签换行
+		document.execCommand('insertBrOnReturn', false, false);
+		// 如果内容清空，至少保证一个p标签
+		cntBaseEle.addEventListener('keyup', function (e) {
+			if (!this.innerHTML) {
+				this.innerHTML = '<p><br></p>';
+				e.preventDefault();
+			}
+		});
 
 		// --------------- 添加菜单功能列表 ------------------
 		that.menuEleList = {}; // 菜单元素
 		conf.menus.forEach(function (menuGroup) {
-			var menuGroupEle = _dom2.default.create('div');
+			var menuGroupEle = _dom2.default.create('div'),
+			    menuIconSuffix = conf.menuIconSuffix;
+
 			_dom2.default.addClass(menuGroupEle, 'dai-editor-menu-group');
 			_dom2.default.pushChild(menuBaseEle, menuGroupEle);
 			(0, _keys2.default)(menuGroup).forEach(function (id) {
 				var menuEle = _dom2.default.create('div'),
-				    btnEle = _dom2.default.create('a');
+				    btnEle = _dom2.default.create('a'),
+				    iconEle = _dom2.default.create('i');
 				_dom2.default.addClass(menuEle, 'dai-editor-menu-item');
 				_dom2.default.addClass(btnEle, 'dai-editor-menu-item-btn');
+				_dom2.default.addClass(iconEle, 'dai-editor-icon');
+				_dom2.default.addClass(iconEle, 'dai-editor-icon-' + menuIconSuffix[id]);
 				_dom2.default.setAttr(btnEle, {
 					title: lang[id]
 				});
-				_dom2.default.text(btnEle, menuGroup[id]);
+				_dom2.default.pushChild(btnEle, iconEle);
 				_dom2.default.pushChild(menuEle, btnEle);
 				_dom2.default.pushChild(menuGroupEle, menuEle);
 				that.menuEleList[id] = {
@@ -8712,11 +8394,14 @@
 				_selection2.default.save();
 				that.nextTimeRestoreSelection = true;
 			});
-			ele.addEventListener('click', function () {
-				if (document.queryCommandSupported(cmd)) {
+			ele.addEventListener('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				if (cmd && document.queryCommandSupported(cmd)) {
 					document.execCommand(cmd, false, opt);
 				} else {}
-				callback();
+				callback(e);
 			});
 		};
 
@@ -8744,8 +8429,79 @@
 		});
 
 		// --------------- :引用 ------------------
+		menuEventBind(that.menuEleList.quote['btn'], '', null, function () {
+			var range = _selection2.default.getRange();
+			if (range) {
+				var container = range.commonAncestorContainer,
+				    blockContainer = _dom2.default.getBlockParent(container),
+				    quoteContainer = void 0;
+				if (cntBaseEle === blockContainer) {
+					// 如果选区公共块容器就是编辑器内容容器
+					quoteContainer = _dom2.default.create('blockquote');
+					quoteContainer.innerHTML = cntBaseEle.innerHTML;
+					cntBaseEle.innerHTML = '';
+					_dom2.default.pushChild(cntBaseEle, quoteContainer);
+					_dom2.default.pushChild(cntBaseEle, _dom2.default.pushChild(_dom2.default.create('p'), _dom2.default.create('br'))); //新建一个空的容器，否则无法在引用块外另起一行
+				} else if (_dom2.default.contain(cntBaseEle, blockContainer)) {
+					(function () {
+						// 检测是否选区容器父元素含有<blockquote>
+						var checkHasQuoteContainer = function checkHasQuoteContainer(ele) {
+							if (ele !== cntBaseEle) {
+								if (ele.nodeName.toLowerCase() == 'blockquote') {
+									hasQuoteContainer = true;
+									quoteContainer = ele;
+								} else if (ele.parentNode !== null) {
+									checkHasQuoteContainer(ele.parentNode);
+								}
+							}
+						};
+
+						// 编辑器内容容器包含选区公共块容器
+						var hasQuoteContainer = false;
+						checkHasQuoteContainer(blockContainer);
+
+						if (!hasQuoteContainer) {
+							// 不含有<blockquote>我给你加上
+							_dom2.default.addParent('blockquote', blockContainer);
+						} else {
+							// 含有<blockquote>我给你去掉
+							_dom2.default.removeParent(quoteContainer);
+						}
+					})();
+				}
+			}
+		});
+
+		// --------------- :字体颜色 ------------------
 		(function () {
-			menuEventBind(that.menuEleList.quote['btn'], 'formatBlock', '<BLOCKQUOTE>');
+			var fcEle = that.menuEleList.forecolor['item'],
+			    fcBtnEle = that.menuEleList.forecolor['btn'],
+			    dropMenu = _dom2.default.create('ul'),
+			    colors = conf.colors;
+
+			dropMenu.className = 'dai-editor-dropmenu dai-editor-dropmenu-color';
+			(0, _keys2.default)(colors).forEach(function (color) {
+				var cEle = _dom2.default.create('li');
+				cEle.style.backgroundColor = color;
+				_dom2.default.setStyle(cEle, {
+					backgroundColor: color
+				});
+				_dom2.default.setAttr(cEle, {
+					title: colors[color]
+				});
+				menuEventBind(cEle, 'foreColor', color, function () {
+					_dom2.default.removeClass(fcEle, 'z-on2');
+				});
+				_dom2.default.pushChild(dropMenu, cEle);
+			});
+			_dom2.default.pushChild(fcEle, dropMenu);
+			menuEventBind(fcBtnEle, '', null, function (e) {
+				if (_dom2.default.hasClass(fcEle, 'z-on2')) {
+					_dom2.default.removeClass(fcEle, 'z-on2');
+				} else {
+					_dom2.default.addClass(fcEle, 'z-on2');
+				}
+			});
 		})();
 	};
 
@@ -8788,44 +8544,44 @@
 	exports.default = E;
 
 /***/ },
-/* 304 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(305), __esModule: true };
+	module.exports = { "default": __webpack_require__(301), __esModule: true };
 
 /***/ },
-/* 305 */
+/* 301 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(306);
-	module.exports = __webpack_require__(326).Object.keys;
+	__webpack_require__(302);
+	module.exports = __webpack_require__(322).Object.keys;
 
 /***/ },
-/* 306 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(307)
-	  , $keys    = __webpack_require__(309);
+	var toObject = __webpack_require__(303)
+	  , $keys    = __webpack_require__(305);
 
-	__webpack_require__(324)('keys', function(){
+	__webpack_require__(320)('keys', function(){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ },
-/* 307 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(308);
+	var defined = __webpack_require__(304);
 	module.exports = function(it){
 	  return Object(defined(it));
 	};
 
 /***/ },
-/* 308 */
+/* 304 */
 /***/ function(module, exports) {
 
 	// 7.2.1 RequireObjectCoercible(argument)
@@ -8835,25 +8591,25 @@
 	};
 
 /***/ },
-/* 309 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 / 15.2.3.14 Object.keys(O)
-	var $keys       = __webpack_require__(310)
-	  , enumBugKeys = __webpack_require__(323);
+	var $keys       = __webpack_require__(306)
+	  , enumBugKeys = __webpack_require__(319);
 
 	module.exports = Object.keys || function keys(O){
 	  return $keys(O, enumBugKeys);
 	};
 
 /***/ },
-/* 310 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var has          = __webpack_require__(311)
-	  , toIObject    = __webpack_require__(312)
-	  , arrayIndexOf = __webpack_require__(315)(false)
-	  , IE_PROTO     = __webpack_require__(319)('IE_PROTO');
+	var has          = __webpack_require__(307)
+	  , toIObject    = __webpack_require__(308)
+	  , arrayIndexOf = __webpack_require__(311)(false)
+	  , IE_PROTO     = __webpack_require__(315)('IE_PROTO');
 
 	module.exports = function(object, names){
 	  var O      = toIObject(object)
@@ -8869,7 +8625,7 @@
 	};
 
 /***/ },
-/* 311 */
+/* 307 */
 /***/ function(module, exports) {
 
 	var hasOwnProperty = {}.hasOwnProperty;
@@ -8878,28 +8634,28 @@
 	};
 
 /***/ },
-/* 312 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(313)
-	  , defined = __webpack_require__(308);
+	var IObject = __webpack_require__(309)
+	  , defined = __webpack_require__(304);
 	module.exports = function(it){
 	  return IObject(defined(it));
 	};
 
 /***/ },
-/* 313 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(314);
+	var cof = __webpack_require__(310);
 	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
 	  return cof(it) == 'String' ? it.split('') : Object(it);
 	};
 
 /***/ },
-/* 314 */
+/* 310 */
 /***/ function(module, exports) {
 
 	var toString = {}.toString;
@@ -8909,14 +8665,14 @@
 	};
 
 /***/ },
-/* 315 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// false -> Array#indexOf
 	// true  -> Array#includes
-	var toIObject = __webpack_require__(312)
-	  , toLength  = __webpack_require__(316)
-	  , toIndex   = __webpack_require__(318);
+	var toIObject = __webpack_require__(308)
+	  , toLength  = __webpack_require__(312)
+	  , toIndex   = __webpack_require__(314);
 	module.exports = function(IS_INCLUDES){
 	  return function($this, el, fromIndex){
 	    var O      = toIObject($this)
@@ -8935,18 +8691,18 @@
 	};
 
 /***/ },
-/* 316 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.15 ToLength
-	var toInteger = __webpack_require__(317)
+	var toInteger = __webpack_require__(313)
 	  , min       = Math.min;
 	module.exports = function(it){
 	  return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 	};
 
 /***/ },
-/* 317 */
+/* 313 */
 /***/ function(module, exports) {
 
 	// 7.1.4 ToInteger
@@ -8957,10 +8713,10 @@
 	};
 
 /***/ },
-/* 318 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var toInteger = __webpack_require__(317)
+	var toInteger = __webpack_require__(313)
 	  , max       = Math.max
 	  , min       = Math.min;
 	module.exports = function(index, length){
@@ -8969,20 +8725,20 @@
 	};
 
 /***/ },
-/* 319 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var shared = __webpack_require__(320)('keys')
-	  , uid    = __webpack_require__(322);
+	var shared = __webpack_require__(316)('keys')
+	  , uid    = __webpack_require__(318);
 	module.exports = function(key){
 	  return shared[key] || (shared[key] = uid(key));
 	};
 
 /***/ },
-/* 320 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global = __webpack_require__(321)
+	var global = __webpack_require__(317)
 	  , SHARED = '__core-js_shared__'
 	  , store  = global[SHARED] || (global[SHARED] = {});
 	module.exports = function(key){
@@ -8990,7 +8746,7 @@
 	};
 
 /***/ },
-/* 321 */
+/* 317 */
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
@@ -8999,7 +8755,7 @@
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
-/* 322 */
+/* 318 */
 /***/ function(module, exports) {
 
 	var id = 0
@@ -9009,7 +8765,7 @@
 	};
 
 /***/ },
-/* 323 */
+/* 319 */
 /***/ function(module, exports) {
 
 	// IE 8- don't enum bug keys
@@ -9018,13 +8774,13 @@
 	).split(',');
 
 /***/ },
-/* 324 */
+/* 320 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(325)
-	  , core    = __webpack_require__(326)
-	  , fails   = __webpack_require__(335);
+	var $export = __webpack_require__(321)
+	  , core    = __webpack_require__(322)
+	  , fails   = __webpack_require__(331);
 	module.exports = function(KEY, exec){
 	  var fn  = (core.Object || {})[KEY] || Object[KEY]
 	    , exp = {};
@@ -9033,13 +8789,13 @@
 	};
 
 /***/ },
-/* 325 */
+/* 321 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var global    = __webpack_require__(321)
-	  , core      = __webpack_require__(326)
-	  , ctx       = __webpack_require__(327)
-	  , hide      = __webpack_require__(329)
+	var global    = __webpack_require__(317)
+	  , core      = __webpack_require__(322)
+	  , ctx       = __webpack_require__(323)
+	  , hide      = __webpack_require__(325)
 	  , PROTOTYPE = 'prototype';
 
 	var $export = function(type, name, source){
@@ -9099,18 +8855,18 @@
 	module.exports = $export;
 
 /***/ },
-/* 326 */
+/* 322 */
 /***/ function(module, exports) {
 
 	var core = module.exports = {version: '2.4.0'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
-/* 327 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(328);
+	var aFunction = __webpack_require__(324);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -9131,7 +8887,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 324 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -9140,12 +8896,12 @@
 	};
 
 /***/ },
-/* 329 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var dP         = __webpack_require__(330)
-	  , createDesc = __webpack_require__(338);
-	module.exports = __webpack_require__(334) ? function(object, key, value){
+	var dP         = __webpack_require__(326)
+	  , createDesc = __webpack_require__(334);
+	module.exports = __webpack_require__(330) ? function(object, key, value){
 	  return dP.f(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -9153,15 +8909,15 @@
 	};
 
 /***/ },
-/* 330 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var anObject       = __webpack_require__(331)
-	  , IE8_DOM_DEFINE = __webpack_require__(333)
-	  , toPrimitive    = __webpack_require__(337)
+	var anObject       = __webpack_require__(327)
+	  , IE8_DOM_DEFINE = __webpack_require__(329)
+	  , toPrimitive    = __webpack_require__(333)
 	  , dP             = Object.defineProperty;
 
-	exports.f = __webpack_require__(334) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+	exports.f = __webpack_require__(330) ? Object.defineProperty : function defineProperty(O, P, Attributes){
 	  anObject(O);
 	  P = toPrimitive(P, true);
 	  anObject(Attributes);
@@ -9174,17 +8930,17 @@
 	};
 
 /***/ },
-/* 331 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(332);
+	var isObject = __webpack_require__(328);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
 	};
 
 /***/ },
-/* 332 */
+/* 328 */
 /***/ function(module, exports) {
 
 	module.exports = function(it){
@@ -9192,24 +8948,24 @@
 	};
 
 /***/ },
-/* 333 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = !__webpack_require__(334) && !__webpack_require__(335)(function(){
-	  return Object.defineProperty(__webpack_require__(336)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+	module.exports = !__webpack_require__(330) && !__webpack_require__(331)(function(){
+	  return Object.defineProperty(__webpack_require__(332)('div'), 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 334 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(335)(function(){
+	module.exports = !__webpack_require__(331)(function(){
 	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 	});
 
 /***/ },
-/* 335 */
+/* 331 */
 /***/ function(module, exports) {
 
 	module.exports = function(exec){
@@ -9221,11 +8977,11 @@
 	};
 
 /***/ },
-/* 336 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(332)
-	  , document = __webpack_require__(321).document
+	var isObject = __webpack_require__(328)
+	  , document = __webpack_require__(317).document
 	  // in old IE typeof document.createElement is 'object'
 	  , is = isObject(document) && isObject(document.createElement);
 	module.exports = function(it){
@@ -9233,11 +8989,11 @@
 	};
 
 /***/ },
-/* 337 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
-	var isObject = __webpack_require__(332);
+	var isObject = __webpack_require__(328);
 	// instead of the ES6 spec version, we didn't implement @@toPrimitive case
 	// and the second argument - flag - preferred type is a string
 	module.exports = function(it, S){
@@ -9250,7 +9006,7 @@
 	};
 
 /***/ },
-/* 338 */
+/* 334 */
 /***/ function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -9263,42 +9019,42 @@
 	};
 
 /***/ },
-/* 339 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = { "default": __webpack_require__(340), __esModule: true };
+	module.exports = { "default": __webpack_require__(336), __esModule: true };
 
 /***/ },
-/* 340 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(341);
-	module.exports = __webpack_require__(326).Object.assign;
+	__webpack_require__(337);
+	module.exports = __webpack_require__(322).Object.assign;
 
 /***/ },
-/* 341 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.3.1 Object.assign(target, source)
-	var $export = __webpack_require__(325);
+	var $export = __webpack_require__(321);
 
-	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(342)});
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(338)});
 
 /***/ },
-/* 342 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	// 19.1.2.1 Object.assign(target, source, ...)
-	var getKeys  = __webpack_require__(309)
-	  , gOPS     = __webpack_require__(343)
-	  , pIE      = __webpack_require__(344)
-	  , toObject = __webpack_require__(307)
-	  , IObject  = __webpack_require__(313)
+	var getKeys  = __webpack_require__(305)
+	  , gOPS     = __webpack_require__(339)
+	  , pIE      = __webpack_require__(340)
+	  , toObject = __webpack_require__(303)
+	  , IObject  = __webpack_require__(309)
 	  , $assign  = Object.assign;
 
 	// should work with symbols and should have deterministic property order (V8 bug)
-	module.exports = !$assign || __webpack_require__(335)(function(){
+	module.exports = !$assign || __webpack_require__(331)(function(){
 	  var A = {}
 	    , B = {}
 	    , S = Symbol()
@@ -9323,19 +9079,19 @@
 	} : $assign;
 
 /***/ },
-/* 343 */
+/* 339 */
 /***/ function(module, exports) {
 
 	exports.f = Object.getOwnPropertySymbols;
 
 /***/ },
-/* 344 */
+/* 340 */
 /***/ function(module, exports) {
 
 	exports.f = {}.propertyIsEnumerable;
 
 /***/ },
-/* 345 */
+/* 341 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9379,7 +9135,7 @@
 	;
 
 /***/ },
-/* 346 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9388,7 +9144,7 @@
 		value: true
 	});
 
-	var _keys = __webpack_require__(304);
+	var _keys = __webpack_require__(300);
 
 	var _keys2 = _interopRequireDefault(_keys);
 
@@ -9459,6 +9215,18 @@
 		},
 
 		/**
+	  * 元素是否有某个class
+	  */
+		hasClass: function hasClass(ele, classname) {
+			var classArr = ele.className.split(' '),
+			    res = false;
+			if (classArr.length > 0 && classArr.indexOf(classname) !== -1) {
+				res = true;
+			}
+			return res;
+		},
+
+		/**
 	  * 给元素添加类
 	  * @param {[dom]} ele 元素节点
 	  * @param {[string，array]} cn  [可以是数组或字符串]
@@ -9505,11 +9273,270 @@
 			(0, _keys2.default)(opts).forEach(function (k) {
 				ele.style[k] = opts[k];
 			});
+		},
+
+		/**
+	  * 判断一个元素是不是块状元素（适用编辑器
+	  * @param {node} ele  DOM元素
+	  */
+		isBlock: function isBlock(ele) {
+			var block = ['div', 'p', 'blockquote', 'dl', 'ul', 'ol', 'table', 'img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7'];
+			return block.indexOf(ele.nodeName.toLowerCase()) !== -1;
+		},
+
+		/**
+	  * 判断一个元素包含另一个元素
+	  * @param {node} ele  DOM元素
+	  */
+		contain: function contain(e1, e2) {
+			var isContain = false;
+
+			function check(e1, e2) {
+				if (e1 === e2) {
+					isContain = true;
+				} else if (e1.nodeType === 1 && e1.hasChildNodes()) {
+					var childs = e1.childNodes,
+					    len = childs.length;
+					for (var i = 0; i < len; i++) {
+						check(childs[i], e2);
+					}
+				}
+			}
+			check(e1, e2);
+			return isContain;
+		},
+
+		/**
+	  * 得到块状父元素
+	  * @param {node} ele  DOM元素
+	  */
+		getBlockParent: function getBlockParent(ele) {
+			var resNode = null,
+			    isBlock = this.isBlock;
+
+
+			function check(ele) {
+				if (isBlock(ele)) {
+					resNode = ele;
+				} else if (ele.parentNode !== null) {
+					check(ele.parentNode);
+				}
+			}
+			check(ele);
+			return resNode;
+		},
+
+		/**
+	  * 给元素添加一个父元素
+	  * @param {string} tagName 标签类型
+	  * @param {node} ele     要添加父元素的元素节点
+	  */
+		addParent: function addParent(tagName, ele) {
+			var parEle = document.createElement(tagName);
+			if (ele.parentNode !== null) {
+				ele.parentNode.insertBefore(parEle, ele);
+				this.pushChild(parEle, ele);
+				return parEle;
+			} else {
+				return null;
+			}
+		},
+
+		/**
+	  * 移除一个元素，但保留子元素
+	  *
+	  * @param  {node} ele [description]
+	  * @return {[type]}     [description]
+	  */
+		removeParent: function removeParent(ele) {
+			var parEle = ele.parentNode;
+			if (parEle !== null) {
+				if (ele.nodeType == 1 && ele.hasChildNodes()) {
+					// 这里把子节点列表转为数组很必要，直接for循环，因为ele.childNodes动态在变，所以会出错
+					var childs = Array.prototype.slice.call(ele.childNodes);
+					childs.forEach(function (node) {
+						parEle.insertBefore(node, ele);
+					});
+				}
+				parEle.removeChild(ele);
+			}
+			return parEle;
 		}
 	};
 
 /***/ },
-/* 347 */
+/* 343 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	/*---------------------------------------------------------------
+	 |                           键盘code                           |
+	 ---------------------------------------------------------------*/
+
+	exports.default = {
+		3: "break",
+		8: "backspace",
+		9: "tab",
+		12: 'clear',
+		13: "enter",
+		16: "shift",
+		17: "ctrl",
+		18: "alt",
+		19: "pause/break",
+		20: "caps lock",
+		27: "escape",
+		32: "spacebar",
+		33: "page up",
+		34: "page down",
+		35: "end",
+		36: "home ",
+		37: "left arrow ",
+		38: "up arrow ",
+		39: "right arrow",
+		40: "down arrow ",
+		41: "select",
+		42: "print",
+		43: "execute",
+		44: "Print Screen",
+		45: "insert ",
+		46: "delete",
+		48: "0",
+		49: "1",
+		50: "2",
+		51: "3",
+		52: "4",
+		53: "5",
+		54: "6",
+		55: "7",
+		56: "8",
+		57: "9",
+		58: ":",
+		59: "semicolon (firefox), equals",
+		60: "<",
+		61: "equals (firefox)",
+		63: "ß",
+		64: "@ (firefox)",
+		65: "a",
+		66: "b",
+		67: "c",
+		68: "d",
+		69: "e",
+		70: "f",
+		71: "g",
+		72: "h",
+		73: "i",
+		74: "j",
+		75: "k",
+		76: "l",
+		77: "m",
+		78: "n",
+		79: "o",
+		80: "p",
+		81: "q",
+		82: "r",
+		83: "s",
+		84: "t",
+		85: "u",
+		86: "v",
+		87: "w",
+		88: "x",
+		89: "y",
+		90: "z",
+		91: "Windows Key / Left ⌘ / Chromebook Search key",
+		92: "right window key ",
+		93: "Windows Menu / Right ⌘",
+		96: "numpad 0 ",
+		97: "numpad 1 ",
+		98: "numpad 2 ",
+		99: "numpad 3 ",
+		100: "numpad 4 ",
+		101: "numpad 5 ",
+		102: "numpad 6 ",
+		103: "numpad 7 ",
+		104: "numpad 8 ",
+		105: "numpad 9 ",
+		106: "multiply ",
+		107: "add",
+		108: "numpad period (firefox)",
+		109: "subtract ",
+		110: "decimal point",
+		111: "divide ",
+		112: "f1 ",
+		113: "f2 ",
+		114: "f3 ",
+		115: "f4 ",
+		116: "f5 ",
+		117: "f6 ",
+		118: "f7 ",
+		119: "f8 ",
+		120: "f9 ",
+		121: "f10",
+		122: "f11",
+		123: "f12",
+		124: "f13",
+		125: "f14",
+		126: "f15",
+		127: "f16",
+		128: "f17",
+		129: "f18",
+		130: "f19",
+		131: "f20",
+		132: "f21",
+		133: "f22",
+		134: "f23",
+		135: "f24",
+		144: "num lock ",
+		145: "scroll lock",
+		160: "^",
+		161: '!',
+		163: "#",
+		164: '$',
+		165: 'ù',
+		166: "page backward",
+		167: "page forward",
+		169: "closing paren (AZERTY)",
+		170: '*',
+		171: "~ + * key",
+		173: "minus (firefox), mute/unmute",
+		174: "decrease volume level",
+		175: "increase volume level",
+		176: "next",
+		177: "previous",
+		178: "stop",
+		179: "play/pause",
+		180: "e-mail",
+		181: "mute/unmute (firefox)",
+		182: "decrease volume level (firefox)",
+		183: "increase volume level (firefox)",
+		186: "semi-colon / ñ",
+		187: "equal sign ",
+		188: "comma",
+		189: "dash ",
+		190: "period ",
+		191: "forward slash / ç",
+		192: "grave accent / ñ",
+		193: "?, / or °",
+		194: "numpad period (chrome)",
+		219: "open bracket ",
+		220: "back slash ",
+		221: "close bracket ",
+		222: "single quote ",
+		223: "`",
+		224: "left or right ⌘ key (firefox)",
+		225: "altgr",
+		226: "< /git >",
+		230: "GNOME Compose Key",
+		233: "XF86Forward",
+		234: "XF86Back",
+		255: "toggle touchpad"
+	};
+
+/***/ },
+/* 344 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -9535,8 +9562,11 @@
 
 		// 保存选区
 		save: function save() {
-			var range = document.getSelection().getRangeAt(0);
-			this.setRange(range);
+			// 使用 try catch 来防止没有选区时的报错
+			try {
+				var range = document.getSelection().getRangeAt(0);
+				this.setRange(range);
+			} catch (ex) {}
 		},
 
 		// 恢复选区
@@ -9559,7 +9589,7 @@
 	};
 
 /***/ },
-/* 348 */
+/* 345 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -9680,23 +9710,56 @@
 			}
 		},
 
+		// 图标字体
+		menuIconSuffix: {
+			// 这个 default 不加引号，在 IE8 会报错
+			'default': 'command',
+			bold: 'bold',
+			underline: 'underline',
+			italic: 'italic',
+			forecolor: 'pencil',
+			bgcolor: 'brush',
+			strikethrough: 'strikethrough',
+			eraser: 'eraser',
+			quote: 'quotes-left',
+			source: 'code',
+			fontfamily: 'font2',
+			fontsize: 'text-height',
+			head: 'header',
+			orderlist: 'list-numbered',
+			unorderlist: 'list-bullet',
+			alignleft: 'align-left',
+			aligncenter: 'align-center',
+			alignright: 'align-right',
+			link: 'link',
+			unlink: 'unlink',
+			table: 'table',
+			emotion: 'happy',
+			img: 'picture',
+			video: 'play',
+			location: 'location',
+			insertcode: 'terminal',
+			undo: 'ccw',
+			redo: 'cw',
+			fullscreen: 'enlarge2'
+		},
+
 		// 菜单配置
 		menus: [{
 			bold: '粗体',
 			underline: '下划线',
 			italic: '斜体',
-			forecolor: '文字颜色',
-			bgcolor: '背景色',
 			strikethrough: '删除线',
+			forecolor: '文字颜色',
 			fontfamily: '字体',
 			fontsize: '字号',
 			head: '标题',
 			eraser: '清空格式'
 		}, {
-			quote: '引用',
 			orderlist: '有序列表',
 			unorderlist: '无序列表',
-			table: '表格'
+			table: '表格',
+			quote: '引用'
 		}, {
 			alignleft: '左对齐',
 			aligncenter: '居中',
@@ -9704,8 +9767,7 @@
 		}, {
 			link: '链接',
 			emotion: '表情',
-			img: '图片',
-			video: '视频'
+			img: '图片'
 		}, {
 			undo: '撤销',
 			redo: '重复',
